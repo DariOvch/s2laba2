@@ -142,6 +142,7 @@
     <ClCompile Include="io.cpp" />
     <ClCompile Include="KEEPER.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TRAIN.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="io.h" />

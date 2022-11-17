@@ -26,23 +26,31 @@
 #define EDIT 4
 #define SEARCH_DEST 5
 #define SEARCH_NUM 6
+#define SEARCH_TIME 7
 
 
+void msg()
+{
+	system("cls");
+	printf("menu\n");
+	printf("%d exit\n", EXIT);
+	printf("%d clear\n", CLEAR);
+	printf("%d see all\n", SEEALL);
 
+	printf("%d add\n", ADD);
+	printf("%d edit\n", EDIT);
+	printf("%d delete\n", DEL);
+	printf("%d search by destination\n", SEARCH_DEST);
+	printf("%d search by train\n", SEARCH_NUM);
+	printf("%d search by time\n", SEARCH_TIME);
+
+
+}
 
 int main()
 {
 	KEEPER cnt;
-
-	printf("main menu\n");
-	printf("exit %d\n", EXIT);
-	printf("clear %d\n", CLEAR);
-	printf("see all %d\n", SEEALL);
-
-	printf("add %d\n", ADD);
-	printf("delete %d\n", DEL);
-	printf("SEARCH_DEST %d\n", SEARCH_DEST);
-	printf("SEARCH_TRAIN %d\n", SEARCH_NUM);
+	msg();
 
 
 
@@ -58,53 +66,85 @@ int main()
 			return 0;
 
 		case CLEAR:
-		{
-			system("cls");
-			printf("menu\n");
-			printf("exit %d\n", EXIT);
-			printf("clear %d\n", CLEAR);
-			printf("see all %d\n", SEEALL);
-
-			printf("add %d\n", ADD);
-			printf("edit %d\n", EDIT);
-			printf("delete %d\n", DEL);
-
-		}
-		break;
+			msg();
+			break;
 
 		case SEEALL:
-			cnt.seeall();
+			try {
+				cnt.seeall();
+			}
+			catch (int e) {
+				if (e == -1)
+					cout << "EXEPTION: no item added" << endl;
+			}
 			break;
 
 
 		case ADD:
-			try
-			{
+			try	{
 				cnt.add();
 			}
-			catch (char* m)
-			{
+			catch (char* m)	{
 				printf("%s\n", m);
 			};
 			
 			break;
 
 		case EDIT:
-			cnt.edit();
+			try {
+				cnt.edit();
+			}
+			catch (int e) {
+				if (e == -1)
+					cout << "EXEPTION: no item added" << endl;
+			}
 			break;
 
 		case DEL:
-			cnt.delet();
+			try {
+				cnt.delet();
+			}
+			catch (int e) {
+				if (e == -1)
+					cout << "EXEPTION: no item added" << endl;
+			}
 			break;
 
 		case SEARCH_DEST:
+			try {
+				cnt.seeWithDestination();
+			}
+			catch (int e) {
+				if (e == -1)
+					cout << "EXEPTION: no item added" << endl;
+			}
+			
 			break;
 
 		case SEARCH_NUM:
+			try {
+				cnt.seeWithNumber();
+			}
+			catch (int e) {
+				if (e == -1)
+					cout << "EXEPTION: no item added" << endl;
+			}
+			
+			break;
 
+		case SEARCH_TIME:
+			try {
+				cnt.seeWithTime();
+			}
+			catch (int e) {
+				if (e == -1)
+					cout << "EXEPTION: no item added" << endl;
+			}
+			
 			break;
 
 		default:
+
 			printf("unknown\n");
 			break;
 
