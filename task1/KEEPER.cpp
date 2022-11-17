@@ -31,6 +31,7 @@ void KEEPER::seeall()
 		throw - 1;
 	else
 	{
+		cout << "\tall added items:" << endl;
 		for (int i = 0; i < size; i++)
 		{
 			cout << *arr[i];
@@ -46,6 +47,7 @@ void KEEPER::edit()
 	while (true)
 	{
 		cout << "there are " << size << " items added" << endl;
+		seeall();
 		printf("-1 back\n1 choose number to edit\n");
 		int in = 0;
 		scan("%d", &in);
@@ -85,6 +87,7 @@ void KEEPER::delet()
 	else
 	{
 		cout << "there are " << size << " items added" << endl;
+		seeall();
 		int num = -1;
 		
 		while (num < 1 || num > size)
@@ -153,7 +156,7 @@ void KEEPER::seeWithDestination()
 	for (int i = 0; i < size; i++)
 	{
 		if (arr[i]->getDestination() == dest)
-			cout << "train departs at " << arr[i]->getDeparture() << " train number " << arr[i]->getNumber() << endl;
+			cout << "train departs at " << *arr[i]->getDeparture() << " train number " << arr[i]->getNumber() << endl;
 	}
 }
 
@@ -183,7 +186,7 @@ void KEEPER::seeWithNumber()
 	for (int i = 0; i < size; i++)
 	{
 		if (arr[i]->getNumber() == num)
-			cout << "train departs at " << arr[i]->getDeparture() << " to " << arr[i]->getDestination() << endl;
+			cout << "train departs at " << *arr[i]->getDeparture() << " to " << arr[i]->getDestination() << endl;
 	}
 }
 
@@ -213,6 +216,6 @@ void KEEPER::seeWithTime()
 	for (int i = 0; i < size; i++)
 	{
 		if (*arr[i]->getDeparture() == time)
-			cout << arr[i]->getDeparture() << arr[i]->getNumber() << endl;
+			cout <<"train to " << arr[i]->getDestination() << " number "<< arr[i]->getNumber() << endl;
 	}
 }
