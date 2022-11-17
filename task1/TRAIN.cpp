@@ -61,7 +61,7 @@ using namespace std;
 		time.hour = h;
 		while (m < 0 || m > 59)
 		{
-			std::cout << "hour: ";
+			std::cout << "minute: ";
 			scan("%d", &m);
 		}
 		time.min = m;
